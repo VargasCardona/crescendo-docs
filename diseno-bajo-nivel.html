@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño de Bajo Nivel - Crescendo</title>
+    <link rel="stylesheet" href="styles_extra.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="nav-brand">
+                        <a href="index.html" class="brand-link">
+                            <span class="gradient-text">Crescendo</span>
+                        </a>
+                    </div>
+                    
+                    <div class="nav-menu" id="navMenu">
+                        <ul class="nav-list">
+                            <li class="nav-item">
+                                <a href="index.html" class="nav-link">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="diseno-alto-nivel.html" class="nav-link">Diseño de Alto Nivel</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="diseno-bajo-nivel.html" class="nav-link active">Diseño de Bajo Nivel</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="diseno-bases-datos.html" class="nav-link">Diseño de Bases de Datos</a>
+                            </li>
+                        </ul>
+                        <div class="nav-cta">
+                            <a href="#" class="btn btn-primary-small">
+                                <span>Demo</span>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="nav-toggle" id="navToggle">
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="breadcrumb">
+                    <a href="index.html">Inicio</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Diseño de Bajo Nivel</span>
+                </div>
+                <h1 class="gradient-text">Diseño de Bajo Nivel</h1>
+                <p>Casos de uso detallados, diagramas de secuencia e interfaces de usuario del sistema</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-main">
+                    <!-- Diagrama Detallado de Casos de Uso -->
+                    <div class="content-card" id="casos-uso">
+                        <h2><i class="fas fa-users"></i> Diagrama Detallado de Casos de Uso</h2>
+                        <p>Los casos de uso del sistema Crescendo definen las interacciones entre los actores y el sistema para lograr objetivos específicos.</p>
+                        
+                        <div class="use-case-diagram">
+                            <div class="actors-section">
+                                <h3>Actores del Sistema</h3>
+                                <div class="actors-grid">
+                                    <div class="actor-card primary-actor">
+                                        <div class="actor-icon">
+                                            <i class="fas fa-user-tie"></i>
+                                        </div>
+                                        <h4>Administrador del Sistema</h4>
+                                        <p>Responsable de la configuración, monitoreo y mantenimiento del sistema.</p>
+                                        <ul>
+                                            <li>Configurar parámetros del sistema</li>
+                                            <li>Monitorear procesos</li>
+                                            <li>Generar reportes</li>
+                                            <li>Gestionar usuarios</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="actor-card">
+                                        <div class="actor-icon">
+                                            <i class="fas fa-robot"></i>
+                                        </div>
+                                        <h4>Sistema Automatizado</h4>
+                                        <p>Procesos automáticos que ejecutan las tareas principales del sistema.</p>
+                                        <ul>
+                                            <li>Procesar archivos CSV</li>
+                                            <li>Validar traspasos</li>
+                                            <li>Generar colas de prioridad</li>
+                                            <li>Crear respaldos</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="actor-card external-actor">
+                                        <div class="actor-icon">
+                                            <i class="fas fa-university"></i>
+                                        </div>
+                                        <h4>Entidades Gubernamentales</h4>
+                                        <p>Sistemas externos que proporcionan información de embargos.</p>
+                                        <ul>
+                                            <li>Enviar archivos de embargos</li>
+                                            <li>Actualizar información</li>
+                                            <li>Recibir notificaciones</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="actor-card">
+                                        <div class="actor-icon">
+                                            <i class="fas fa-building"></i>
+                                        </div>
+                                        <h4>Fondo Crescendo</h4>
+                                        <p>Sistema principal que recibe los resultados del procesamiento.</p>
+                                        <ul>
+                                            <li>Proporcionar datos de cotizantes</li>
+                                            <li>Recibir traspasos aprobados</li>
+                                            <li>Consultar estados</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="use-cases-section">
+                                <h3>Casos de Uso Principales</h3>
+                                <div class="use-cases-grid">
+                                    <div class="use-case-card">
+                                        <div class="use-case-header">
+                                            <h4>UC-001: Procesar Traspaso de Cotizante</h4>
+                                            <span class="priority high">Alta Prioridad</span>
+                                        </div>
+                                        <div class="use-case-content">
+                                            <div class="use-case-section">
+                                                <h5>Descripción:</h5>
+                                                <p>El sistema procesa automáticamente las solicitudes de traspaso de cotizantes desde fondos privados hacia Crescendo.</p>
+                                            </div>
+                                            <div class="use-case-section">
+                                                <h5>Actor Principal:</h5>
+                                                <p>Sistema Automatizado</p>
+                                            </div>
+                                            <div class="use-case-section">
+                                                <h5>Precondiciones:</h5>
+                                                <ul>
+                                                    <li>Archivo cotizantes.csv disponible</li>
+                                                    <li>Sistema iniciado correctamente</li>
+                                                    <li>Conexión a base de datos activa</li>
+                                                </ul>
+                                            </div>
+                                            <div class="use-case-section">
+                                                <h5>Flujo Principal:</h5>
+                                                <ol>
+                                                    <li>Sistema lee archivo cotizantes.csv</li>
+                                                    <li>Valida formato y datos de cada cotizante</li>
+                                                    <li>Aplica reglas de elegibilidad</li>
+                                                    <li>Calcula prioridad para cotizantes válidos</li>
+                                                    <li>Agrega a cola de procesamiento</li>
+                                                    <li>Genera archivo de resultados</li>
+                                                    <li>Registra transacción en auditoría</li>
+                                                </ol>
+                                            </div>
+                                            <div class="use-case-section">
+                                                <h5>Postcondiciones:</h5>
+                                                <ul>
+                                                    <li>Traspasos procesados y priorizados</li>
+                                                    <li>Archivo de resultados generado</li>
+                                                    <li>Log de auditoría actualizado</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="use-case-card">
+                                        <div class="use-case-header">
+                                            <h4>UC-002: Gestionar Lista Negra de Embargos</h4>
+                                            <span class="priority high">Alta Prioridad</span>
+                                        </div>
+                                        <div class="use-case-content">
+                                            <div class="use-case-section">
+                                                <h5>Descripción:</h5>
+                                                <p>El sistema mantiene y actualiza una lista negra de cotizantes con embargos activos.</p>
+                                            </div>
+                                            <div class="use-case-section">
+                                                <h5>Actor Principal:</h5>
+                                                <p>Sistema Automatizado</p>
+                                            </div>
+                                            <div class="use-case-section">
+                                                <h5>Precondiciones:</h5>
+                                                <ul>
+                                                    <li>Archivo embargos.csv disponible</li>
+                                                    <li>Lista enlazada inicializada</li>
+                                                    <li>Conexión SFTP establecida</li>
+                                                </ul>
+                                            </div>
+                                            <div class="use-case-section">
+                                                <h5>Flujo Principal:</h5>
+                                                <ol>
+                                                    <li>Sistema descarga archivo embargos.csv</li>
+                                                    <li>Procesa cada registro de embargo</li>
+                                                    <li>Actualiza lista enlazada de embargos</li>
+                                                    <li>Verifica cotizantes contra lista negra</li>
+                                                    <li>Genera archivo lista_negra.csv</li>
+                                                    <li>Cifra archivo de salida</li>
+                                                </ol>
+                                            </div>
+                                            <div class="use-case-section">
+                                                <h5>Postcondiciones:</h5>
+                                                <ul>
+                                                    <li>Lista negra actualizada</li>
+                                                    <li>Archivo cifrado generado</li>
+                                                    <li>Cotizantes embargados identificados</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="use-case-card">
+                                        <div class="use-case-header">
+                                            <h4>UC-003: Sincronizar con Entidades Gubernamentales</h4>
+                                            <span class="priority medium">Media Prioridad</span>
+                                        </div>
+                                        <div class="use-case-content">
+                                            <div class="use-case-section">
+                                                <h5>Descripción:</h5>
+                                                <p>El sistema se conecta diariamente con entidades gubernamentales para obtener información actualizada de embargos.</p>
+                                            </div>
+                                            <div class="use-case-section">
+                                                <h5>Actor Principal:</h5>
+                                                <p>Sistema Automatizado</p>
+                                            </div>
+                                            <div class="use-case-section">
+                                                <h5>Actor Secundario:</h5>
+                                                <p>Entidades Gubernamentales</p>
+                                            </div>
+                                            <div class="use-case-section">
+                                                <h5>Flujo Principal:</h5>
+                                                <ol>
+                                                    <li>Sistema inicia conexión SFTP programada</li>
+                                                    <li>Autentica con credenciales seguras</li>
+                                                    <li>Descarga archivos actualizados</li>
+                                                    <li>Valida integridad de archivos</li>
+                                                    <li>Procesa nuevos embargos</li>
+                                                    <li>Actualiza base de datos local</li>
+                                                    <li>Confirma recepción exitosa</li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="use-case-card">
+                                        <div class="use-case-header">
+                                            <h4>UC-004: Generar Reportes de Auditoría</h4>
+                                            <span class="priority medium">Media Prioridad</span>
+                                        </div>
+                                        <div class="use-case-content">
+                                            <div class="use-case-section">
+                                                <h5>Descripción:</h5>
+                                                <p>El administrador genera reportes detallados de las operaciones del sistema para auditoría y control.</p>
+                                            </div>
+                                            <div class="use-case-section">
+                                                <h5>Actor Principal:</h5>
+                                                <p>Administrador del Sistema</p>
+                                            </div>
+                                            <div class="use-case-section">
+                                                <h5>Flujo Principal:</h5>
+                                                <ol>
+                                                    <li>Administrador accede al panel de control</li>
+                                                    <li>Selecciona tipo de reporte</li>
+                                                    <li>Define rango de fechas</li>
+                                                    <li>Sistema consulta logs de auditoría</li>
+                                                    <li>Genera reporte en formato solicitado</li>
+                                                    <li>Presenta resultados al administrador</li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Diagrama de Secuencia -->
+                    <div class="content-card" id="diagrama-secuencia">
+                        <h2><i class="fas fa-project-diagram"></i> Diagrama de Secuencia</h2>
+                        <p>Los diagramas de secuencia muestran la interacción temporal entre los objetos del sistema durante la ejecución de casos de uso específicos.</p>
+                        
+                        <div class="sequence-diagrams">
+                            <div class="sequence-diagram">
+                                <h3>Secuencia: Procesamiento de Traspaso</h3>
+                                <div class="sequence-container">
+                                    <div class="sequence-actors">
+                                        <div class="sequence-actor">
+                                            <div class="actor-box">Usuario</div>
+                                            <div class="lifeline"></div>
+                                        </div>
+                                        <div class="sequence-actor">
+                                            <div class="actor-box">ProcesadorCSV</div>
+                                            <div class="lifeline"></div>
+                                        </div>
+                                        <div class="sequence-actor">
+                                            <div class="actor-box">ValidadorTraspasos</div>
+                                            <div class="lifeline"></div>
+                                        </div>
+                                        <div class="sequence-actor">
+                                            <div class="actor-box">GestorCola</div>
+                                            <div class="lifeline"></div>
+                                        </div>
+                                        <div class="sequence-actor">
+                                            <div class="actor-box">BaseDatos</div>
+                                            <div class="lifeline"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="sequence-messages">
+                                        <div class="message-group">
+                                            <div class="message sync">
+                                                <span class="message-label">1: iniciarProcesamiento()</span>
+                                                <div class="message-arrow"></div>
+                                            </div>
+                                            <div class="message sync">
+                                                <span class="message-label">2: leerArchivo(cotizantes.csv)</span>
+                                                <div class="message-arrow"></div>
+                                            </div>
+                                            <div class="message return">
+                                                <span class="message-label">3: List&lt;Cotizante&gt;</span>
+                                                <div class="message-arrow return-arrow"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="message-group">
+                                            <div class="message sync">
+                                                <span class="message-label">4: validarCotizante(cotizante)</span>
+                                                <div class="message-arrow"></div>
+                                            </div>
+                                            <div class="message sync">
+                                                <span class="message-label">5: consultarEmbargos(id)</span>
+                                                <div class="message-arrow"></div>
+                                            </div>
+                                            <div class="message return">
+                                                <span class="message-label">6: boolean</span>
+                                                <div class="message-arrow return-arrow"></div>
+                                            </div>
+                                            <div class="message return">
+                                                <span class="message-label">7: ResultadoValidacion</span>
+                                                <div class="message-arrow return-arrow"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="message-group">
+                                            <div class="message sync">
+                                                <span class="message-label">8: agregarACola(cotizante)</span>
+                                                <div class="message-arrow"></div>
+                                            </div>
+                                            <div class="message sync">
+                                                <span class="message-label">9: guardarResultado(resultado)</span>
+                                                <div class="message-arrow"></div>
+                                            </div>
+                                            <div class="message return">
+                                                <span class="message-label">10: confirmacion</span>
+                                                <div class="message-arrow return-arrow"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="sequence-notes">
+                                    <h4>Notas del Diagrama:</h4>
+                                    <ul>
+                                        <li><strong>Paso 1-3:</strong> Lectura y parsing del archivo CSV de cotizantes</li>
+                                        <li><strong>Paso 4-7:</strong> Validación de elegibilidad incluyendo verificación de embargos</li>
+                                        <li><strong>Paso 8-10:</strong> Agregación a cola de prioridad y persistencia de resultados</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="sequence-diagram">
+                                <h3>Secuencia: Sincronización SFTP</h3>
+                                <div class="sequence-container">
+                                    <div class="sequence-actors">
+                                        <div class="sequence-actor">
+                                            <div class="actor-box">Scheduler</div>
+                                            <div class="lifeline"></div>
+                                        </div>
+                                        <div class="sequence-actor">
+                                            <div class="actor-box">ClienteSFTP</div>
+                                            <div class="lifeline"></div>
+                                        </div>
+                                        <div class="sequence-actor">
+                                            <div class="actor-box">ServicioCifrado</div>
+                                            <div class="lifeline"></div>
+                                        </div>
+                                        <div class="sequence-actor">
+                                            <div class="actor-box">ServidorExterno</div>
+                                            <div class="lifeline"></div>
+                                        </div>
+                                        <div class="sequence-actor">
+                                            <div class="actor-box">LogAuditoria</div>
+                                            <div class="lifeline"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="sequence-messages">
+                                        <div class="message-group">
+                                            <div class="message sync">
+                                                <span class="message-label">1: ejecutarSincronizacion()</span>
+                                                <div class="message-arrow"></div>
+                                            </div>
+                                            <div class="message sync">
+                                                <span class="message-label">2: conectar(host, credenciales)</span>
+                                                <div class="message-arrow"></div>
+                                            </div>
+                                            <div class="message return">
+                                                <span class="message-label">3: conexionEstablecida</span>
+                                                <div class="message-arrow return-arrow"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="message-group">
+                                            <div class="message sync">
+                                                <span class="message-label">4: descargarArchivo(embargos.csv)</span>
+                                                <div class="message-arrow"></div>
+                                            </div>
+                                            <div class="message return">
+                                                <span class="message-label">5: archivo_cifrado</span>
+                                                <div class="message-arrow return-arrow"></div>
+                                            </div>
+                                            <div class="message sync">
+                                                <span class="message-label">6: descifrarArchivo(archivo)</span>
+                                                <div class="message-arrow"></div>
+                                            </div>
+                                            <div class="message return">
+                                                <span class="message-label">7: archivo_plano</span>
+                                                <div class="message-arrow return-arrow"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="message-group">
+                                            <div class="message sync">
+                                                <span class="message-label">8: registrarOperacion(detalles)</span>
+                                                <div class="message-arrow"></div>
+                                            </div>
+                                            <div class="message sync">
+                                                <span class="message-label">9: cerrarConexion()</span>
+                                                <div class="message-arrow"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interfaces de Usuario -->
+                    <div class="content-card" id="interfaces-usuario">
+                        <h2><i class="fas fa-desktop"></i> Interfaces de Usuario</h2>
+                        <p>Las interfaces de usuario del sistema Crescendo están diseñadas para proporcionar una experiencia intuitiva y eficiente para los administradores del sistema.</p>
+                        
+                        <div class="ui-interfaces">
+                            <div class="interface-section">
+                                <h3>Panel Principal de Administración</h3>
+                                <div class="interface-mockup">
+                                    <div class="mockup-container">
+                                        <div class="mockup-header">
+                                            <div class="mockup-title">
+                                                <i class="fas fa-tachometer-alt"></i>
+                                                Dashboard - Sistema Crescendo
+                                            </div>
+                                            <div class="mockup-actions">
+                                                <button class="mockup-btn primary">Procesar Traspasos</button>
+                                                <button class="mockup-btn secondary">Configuración</button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mockup-content">
+                                            <div class="dashboard-grid">
+                                                <div class="dashboard-card">
+                                                    <div class="card-header">
+                                                        <h4>Estado del Sistema</h4>
+                                                        <div class="status-indicator active"></div>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <div class="metric">
+                                                            <span class="metric-label">Último Procesamiento:</span>
+                                                            <span class="metric-value">Hace 2 horas</span>
+                                                        </div>
+                                                        <div class="metric">
+                                                            <span class="metric-label">Cotizantes Procesados:</span>
+                                                            <span class="metric-value">1,247</span>
+                                                        </div>
+                                                        <div class="metric">
+                                                            <span class="metric-label">Traspasos Aprobados:</span>
+                                                            <span class="metric-value">892</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="dashboard-card">
+                                                    <div class="card-header">
+                                                        <h4>Cola de Procesamiento</h4>
+                                                        <div class="queue-count">15</div>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <div class="queue-item">
+                                                            <span class="queue-id">COT-001234</span>
+                                                            <span class="queue-priority high">Alta</span>
+                                                        </div>
+                                                        <div class="queue-item">
+                                                            <span class="queue-id">COT-001235</span>
+                                                            <span class="queue-priority medium">Media</span>
+                                                        </div>
+                                                        <div class="queue-item">
+                                                            <span class="queue-id">COT-001236</span>
+                                                            <span class="queue-priority low">Baja</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="dashboard-card">
+                                                    <div class="card-header">
+                                                        <h4>Archivos Recientes</h4>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <div class="file-item">
+                                                            <i class="fas fa-file-csv"></i>
+                                                            <span>cotizantes_20240506.csv</span>
+                                                            <span class="file-status success">Procesado</span>
+                                                        </div>
+                                                        <div class="file-item">
+                                                            <i class="fas fa-file-csv"></i>
+                                                            <span>embargos_20240506.csv</span>
+                                                            <span class="file-status success">Procesado</span>
+                                                        </div>
+                                                        <div class="file-item">
+                                                            <i class="fas fa-file-csv"></i>
+                                                            <span>lista_negra_20240506.csv</span>
+                                                            <span class="file-status pending">Generando</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="dashboard-card">
+                                                    <div class="card-header">
+                                                        <h4>Alertas del Sistema</h4>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <div class="alert-item warning">
+                                                            <i class="fas fa-exclamation-triangle"></i>
+                                                            <span>Espacio en disco: 85% utilizado</span>
+                                                        </div>
+                                                        <div class="alert-item info">
+                                                            <i class="fas fa-info-circle"></i>
+                                                            <span>Próxima sincronización: 14:00</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="interface-features">
+                                    <h4>Características de la Interfaz:</h4>
+                                    <ul>
+                                        <li><strong>Dashboard en tiempo real:</strong> Muestra el estado actual del sistema y métricas clave</li>
+                                        <li><strong>Monitoreo de cola:</strong> Visualización de cotizantes pendientes de procesamiento</li>
+                                        <li><strong>Gestión de archivos:</strong> Estado y progreso de archivos CSV</li>
+                                        <li><strong>Sistema de alertas:</strong> Notificaciones importantes y advertencias</li>
+                                        <li><strong>Acciones rápidas:</strong> Botones para operaciones frecuentes</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="interface-section">
+                                <h3>Interfaz de Configuración</h3>
+                                <div class="interface-mockup">
+                                    <div class="mockup-container">
+                                        <div class="mockup-header">
+                                            <div class="mockup-title">
+                                                <i class="fas fa-cog"></i>
+                                                Configuración del Sistema
+                                            </div>
+                                            <div class="mockup-actions">
+                                                <button class="mockup-btn success">Guardar Cambios</button>
+                                                <button class="mockup-btn secondary">Cancelar</button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mockup-content">
+                                            <div class="config-tabs">
+                                                <div class="tab active">General</div>
+                                                <div class="tab">SFTP</div>
+                                                <div class="tab">Validación</div>
+                                                <div class="tab">Seguridad</div>
+                                            </div>
+                                            
+                                            <div class="config-form">
+                                                <div class="form-group">
+                                                    <label>Edad Mínima para Traspaso:</label>
+                                                    <input type="number" value="18" class="form-input">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Directorio de Archivos CSV:</label>
+                                                    <input type="text" value="/data/csv/" class="form-input">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Frecuencia de Sincronización:</label>
+                                                    <select class="form-select">
+                                                        <option>Diaria</option>
+                                                        <option>Cada 12 horas</option>
+                                                        <option>Cada 6 horas</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Tamaño Máximo de Cola:</label>
+                                                    <input type="number" value="10000" class="form-input">
+                                                </div>
+                                                <div class="form-group checkbox">
+                                                    <input type="checkbox" checked>
+                                                    <label>Habilitar cifrado automático</label>
+                                                </div>
+                                                <div class="form-group checkbox">
+                                                    <input type="checkbox" checked>
+                                                    <label>Generar respaldos automáticos</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="interface-section">
+                                <h3>Interfaz de Reportes</h3>
+                                <div class="interface-mockup">
+                                    <div class="mockup-container">
+                                        <div class="mockup-header">
+                                            <div class="mockup-title">
+                                                <i class="fas fa-chart-bar"></i>
+                                                Reportes y Auditoría
+                                            </div>
+                                            <div class="mockup-actions">
+                                                <button class="mockup-btn primary">Generar Reporte</button>
+                                                <button class="mockup-btn secondary">Exportar PDF</button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mockup-content">
+                                            <div class="report-filters">
+                                                <div class="filter-group">
+                                                    <label>Tipo de Reporte:</label>
+                                                    <select class="form-select">
+                                                        <option>Traspasos Procesados</option>
+                                                        <option>Lista Negra</option>
+                                                        <option>Errores del Sistema</option>
+                                                        <option>Auditoría Completa</option>
+                                                    </select>
+                                                </div>
+                                                <div class="filter-group">
+                                                    <label>Fecha Inicio:</label>
+                                                    <input type="date" class="form-input">
+                                                </div>
+                                                <div class="filter-group">
+                                                    <label>Fecha Fin:</label>
+                                                    <input type="date" class="form-input">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="report-preview">
+                                                <div class="report-table">
+                                                    <div class="table-header">
+                                                        <div class="table-cell">ID Cotizante</div>
+                                                        <div class="table-cell">Nombre</div>
+                                                        <div class="table-cell">Estado</div>
+                                                        <div class="table-cell">Fecha Procesamiento</div>
+                                                        <div class="table-cell">Prioridad</div>
+                                                    </div>
+                                                    <div class="table-row">
+                                                        <div class="table-cell">COT-001234</div>
+                                                        <div class="table-cell">Juan Pérez</div>
+                                                        <div class="table-cell approved">Aprobado</div>
+                                                        <div class="table-cell">2024-05-06 10:30</div>
+                                                        <div class="table-cell">85</div>
+                                                    </div>
+                                                    <div class="table-row">
+                                                        <div class="table-cell">COT-001235</div>
+                                                        <div class="table-cell">María García</div>
+                                                        <div class="table-cell rejected">Rechazado</div>
+                                                        <div class="table-cell">2024-05-06 10:31</div>
+                                                        <div class="table-cell">-</div>
+                                                    </div>
+                                                    <div class="table-row">
+                                                        <div class="table-cell">COT-001236</div>
+                                                        <div class="table-cell">Carlos López</div>
+                                                        <div class="table-cell approved">Aprobado</div>
+                                                        <div class="table-cell">2024-05-06 10:32</div>
+                                                        <div class="table-cell">92</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ui-guidelines">
+                            <h3>Principios de Diseño de Interfaz</h3>
+                            <div class="guidelines-grid">
+                                <div class="guideline-card">
+                                    <div class="guideline-icon">
+                                        <i class="fas fa-eye"></i>
+                                    </div>
+                                    <h4>Visibilidad del Estado</h4>
+                                    <p>El sistema siempre mantiene informado al usuario sobre el estado actual de las operaciones mediante indicadores visuales claros.</p>
+                                </div>
+                                
+                                <div class="guideline-card">
+                                    <div class="guideline-icon">
+                                        <i class="fas fa-mouse-pointer"></i>
+                                    </div>
+                                    <h4>Facilidad de Uso</h4>
+                                    <p>Interfaces intuitivas que minimizan la curva de aprendizaje y permiten operaciones eficientes con pocos clics.</p>
+                                </div>
+                                
+                                <div class="guideline-card">
+                                    <div class="guideline-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <h4>Prevención de Errores</h4>
+                                    <p>Validaciones en tiempo real y confirmaciones para operaciones críticas que podrían afectar el sistema.</p>
+                                </div>
+                                
+                                <div class="guideline-card">
+                                    <div class="guideline-icon">
+                                        <i class="fas fa-mobile-alt"></i>
+                                    </div>
+                                    <h4>Diseño Responsivo</h4>
+                                    <p>Interfaces adaptables que funcionan correctamente en diferentes dispositivos y resoluciones de pantalla.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-sidebar">
+                    <div class="sidebar-card">
+                        <h3>Navegación Rápida</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="#casos-uso">Casos de Uso Detallados</a></li>
+                            <li><a href="#diagrama-secuencia">Diagrama de Secuencia</a></li>
+                            <li><a href="#interfaces-usuario">Interfaces de Usuario</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Casos de Uso</h3>
+                        <div class="metrics-list">
+                            <div class="metric-item">
+                                <span class="metric-label">Casos principales:</span>
+                                <span class="metric-value">4</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Actores del sistema:</span>
+                                <span class="metric-value">4</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Interfaces de usuario:</span>
+                                <span class="metric-value">3</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Diagramas de secuencia:</span>
+                                <span class="metric-value">2</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Tecnologías UI</h3>
+                        <div class="tech-list">
+                            <div class="tech-item">
+                                <i class="fab fa-html5"></i>
+                                <span>HTML5</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-css3-alt"></i>
+                                <span>CSS3</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-js-square"></i>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-chart-bar"></i>
+                                <span>Chart.js</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Documentos Relacionados</h3>
+                        <ul class="related-docs">
+                            <li><a href="diseno-alto-nivel.html">Diseño de Alto Nivel</a></li>
+                            <li><a href="diseno-bases-datos.html">Diseño de Bases de Datos</a></li>
+                            <li><a href="index.html">Especificación de Requisitos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="gradient-text">Crescendo</h3>
+                    <p>Sistema de automatización para traspaso de cotizantes a fondos públicos</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Equipo de Desarrollo</h3>
+                    <ul>
+                        <li>Nicolás Vargas Cardona</li>
+                        <li>Alejandro Giraldo Herrera</li>
+                        <li>Mateo Loaiza García</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Documentación</h3>
+                    <ul>
+                        <li>Especificación de Requisitos Software (ERS)</li>
+                        <li>Versión 1.0</li>
+                        <li>Mayo 2024</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 Crescendo. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
