@@ -246,8 +246,28 @@
 
 .sequence-container {
     position: relative;
-    overflow-x: auto;
-    padding: 1rem 0;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.sequence-diagram-image {
+    min-width: 800px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.sequence-diagram-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 35px rgba(124, 58, 237, 0.3);
 }
 
 .sequence-actors {
@@ -849,7 +869,15 @@
     }
     
     .sequence-container {
-        overflow-x: scroll;
+        padding: 1rem;
+    }
+    
+    .sequence-diagram {
+        padding: 1.5rem;
+    }
+    
+    .sequence-notes {
+        padding: 1.25rem;
     }
     
     .report-table {
@@ -884,6 +912,32 @@
     .report-filters {
         grid-template-columns: 1fr;
     }
+}
+
+@media (max-width: 480px) {
+    .sequence-container {
+        padding: 0.75rem;
+    }
+    
+    .sequence-diagram {
+        padding: 1.25rem;
+    }
+}
+
+/* Animation for the image */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.sequence-diagram-image {
+    animation: fadeInScale 0.6s ease-out;
 }
 
 /* Animations */

@@ -300,168 +300,24 @@
                     <div class="content-card" id="diagrama-secuencia">
                         <h2><i class="fas fa-project-diagram"></i> Diagrama de Secuencia</h2>
                         <p>Los diagramas de secuencia muestran la interacción temporal entre los objetos del sistema durante la ejecución de casos de uso específicos.</p>
-                        
+
                         <div class="sequence-diagrams">
                             <div class="sequence-diagram">
                                 <h3>Secuencia: Procesamiento de Traspaso</h3>
                                 <div class="sequence-container">
-                                    <div class="sequence-actors">
-                                        <div class="sequence-actor">
-                                            <div class="actor-box">Usuario</div>
-                                            <div class="lifeline"></div>
-                                        </div>
-                                        <div class="sequence-actor">
-                                            <div class="actor-box">ProcesadorCSV</div>
-                                            <div class="lifeline"></div>
-                                        </div>
-                                        <div class="sequence-actor">
-                                            <div class="actor-box">ValidadorTraspasos</div>
-                                            <div class="lifeline"></div>
-                                        </div>
-                                        <div class="sequence-actor">
-                                            <div class="actor-box">GestorCola</div>
-                                            <div class="lifeline"></div>
-                                        </div>
-                                        <div class="sequence-actor">
-                                            <div class="actor-box">BaseDatos</div>
-                                            <div class="lifeline"></div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="sequence-messages">
-                                        <div class="message-group">
-                                            <div class="message sync">
-                                                <span class="message-label">1: iniciarProcesamiento()</span>
-                                                <div class="message-arrow"></div>
-                                            </div>
-                                            <div class="message sync">
-                                                <span class="message-label">2: leerArchivo(cotizantes.csv)</span>
-                                                <div class="message-arrow"></div>
-                                            </div>
-                                            <div class="message return">
-                                                <span class="message-label">3: List&lt;Cotizante&gt;</span>
-                                                <div class="message-arrow return-arrow"></div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="message-group">
-                                            <div class="message sync">
-                                                <span class="message-label">4: validarCotizante(cotizante)</span>
-                                                <div class="message-arrow"></div>
-                                            </div>
-                                            <div class="message sync">
-                                                <span class="message-label">5: consultarEmbargos(id)</span>
-                                                <div class="message-arrow"></div>
-                                            </div>
-                                            <div class="message return">
-                                                <span class="message-label">6: boolean</span>
-                                                <div class="message-arrow return-arrow"></div>
-                                            </div>
-                                            <div class="message return">
-                                                <span class="message-label">7: ResultadoValidacion</span>
-                                                <div class="message-arrow return-arrow"></div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="message-group">
-                                            <div class="message sync">
-                                                <span class="message-label">8: agregarACola(cotizante)</span>
-                                                <div class="message-arrow"></div>
-                                            </div>
-                                            <div class="message sync">
-                                                <span class="message-label">9: guardarResultado(resultado)</span>
-                                                <div class="message-arrow"></div>
-                                            </div>
-                                            <div class="message return">
-                                                <span class="message-label">10: confirmacion</span>
-                                                <div class="message-arrow return-arrow"></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <img src="diagram.jpg" 
+                                        alt="Diagrama de Secuencia - Procesamiento de Traspaso" 
+                                        class="sequence-diagram-image"
+                                        width="1200">
                                 </div>
                                 
                                 <div class="sequence-notes">
                                     <h4>Notas del Diagrama:</h4>
                                     <ul>
-                                        <li><strong>Paso 1-3:</strong> Lectura y parsing del archivo CSV de cotizantes</li>
-                                        <li><strong>Paso 4-7:</strong> Validación de elegibilidad incluyendo verificación de embargos</li>
-                                        <li><strong>Paso 8-10:</strong> Agregación a cola de prioridad y persistencia de resultados</li>
+                                        <li><strong>Paso 1-5:</strong> Lectura y parsing del archivo CSV de cotizantes</li>
+                                        <li><strong>Paso 6-12:</strong> Validación de elegibilidad incluyendo verificación de embargos</li>
+                                        <li><strong>Paso 13:</strong> Agregación a cola de prioridad y persistencia de resultados</li>
                                     </ul>
-                                </div>
-                            </div>
-
-                            <div class="sequence-diagram">
-                                <h3>Secuencia: Sincronización SFTP</h3>
-                                <div class="sequence-container">
-                                    <div class="sequence-actors">
-                                        <div class="sequence-actor">
-                                            <div class="actor-box">Scheduler</div>
-                                            <div class="lifeline"></div>
-                                        </div>
-                                        <div class="sequence-actor">
-                                            <div class="actor-box">ClienteSFTP</div>
-                                            <div class="lifeline"></div>
-                                        </div>
-                                        <div class="sequence-actor">
-                                            <div class="actor-box">ServicioCifrado</div>
-                                            <div class="lifeline"></div>
-                                        </div>
-                                        <div class="sequence-actor">
-                                            <div class="actor-box">ServidorExterno</div>
-                                            <div class="lifeline"></div>
-                                        </div>
-                                        <div class="sequence-actor">
-                                            <div class="actor-box">LogAuditoria</div>
-                                            <div class="lifeline"></div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="sequence-messages">
-                                        <div class="message-group">
-                                            <div class="message sync">
-                                                <span class="message-label">1: ejecutarSincronizacion()</span>
-                                                <div class="message-arrow"></div>
-                                            </div>
-                                            <div class="message sync">
-                                                <span class="message-label">2: conectar(host, credenciales)</span>
-                                                <div class="message-arrow"></div>
-                                            </div>
-                                            <div class="message return">
-                                                <span class="message-label">3: conexionEstablecida</span>
-                                                <div class="message-arrow return-arrow"></div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="message-group">
-                                            <div class="message sync">
-                                                <span class="message-label">4: descargarArchivo(embargos.csv)</span>
-                                                <div class="message-arrow"></div>
-                                            </div>
-                                            <div class="message return">
-                                                <span class="message-label">5: archivo_cifrado</span>
-                                                <div class="message-arrow return-arrow"></div>
-                                            </div>
-                                            <div class="message sync">
-                                                <span class="message-label">6: descifrarArchivo(archivo)</span>
-                                                <div class="message-arrow"></div>
-                                            </div>
-                                            <div class="message return">
-                                                <span class="message-label">7: archivo_plano</span>
-                                                <div class="message-arrow return-arrow"></div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="message-group">
-                                            <div class="message sync">
-                                                <span class="message-label">8: registrarOperacion(detalles)</span>
-                                                <div class="message-arrow"></div>
-                                            </div>
-                                            <div class="message sync">
-                                                <span class="message-label">9: cerrarConexion()</span>
-                                                <div class="message-arrow"></div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
