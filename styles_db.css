@@ -1,0 +1,360 @@
+/* Logical Design Section */
+.logical-design {
+    margin-top: 2rem;
+}
+
+.logical-design h3 {
+    font-size: 1.75rem;
+    color: var(--purple-300);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logical-design h3::before {
+    content: '';
+    width: 4px;
+    height: 30px;
+    background: linear-gradient(to bottom, var(--purple-400), var(--indigo-400));
+    border-radius: 2px;
+}
+
+/* Design Principles Section */
+.design-principles {
+    margin-bottom: 3rem;
+}
+
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.principle-card {
+    background: linear-gradient(to bottom right, rgba(76, 29, 149, 0.1), rgba(49, 46, 129, 0.1));
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.principle-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--purple-600), var(--indigo-600));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.principle-card:hover {
+    border-color: rgba(124, 58, 237, 0.4);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(124, 58, 237, 0.2);
+}
+
+.principle-card:hover::before {
+    opacity: 1;
+}
+
+.principle-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: var(--white);
+    position: relative;
+}
+
+.principle-card:nth-child(1) .principle-icon {
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-400));
+}
+
+.principle-card:nth-child(2) .principle-icon {
+    background: linear-gradient(135deg, var(--indigo-600), var(--indigo-400));
+}
+
+.principle-card:nth-child(3) .principle-icon {
+    background: linear-gradient(135deg, var(--purple-700), var(--purple-500));
+}
+
+.principle-card:nth-child(4) .principle-icon {
+    background: linear-gradient(135deg, var(--indigo-700), var(--indigo-500));
+}
+
+.principle-card h4 {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.principle-card p {
+    color: var(--gray-300);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.principle-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.principle-card li {
+    color: var(--gray-400);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+    position: relative;
+    padding-left: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.principle-card li:last-child {
+    border-bottom: none;
+}
+
+.principle-card li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--purple-400);
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.principle-card li:hover {
+    color: var(--white);
+    padding-left: 2rem;
+}
+
+.principle-card li:hover::before {
+    color: var(--purple-300);
+    transform: translateX(5px);
+}
+
+/* Data Domains Section */
+.data-domains {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid rgba(124, 58, 237, 0.2);
+}
+
+.domains-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.domain-card {
+    background: linear-gradient(to bottom right, rgba(76, 29, 149, 0.08), rgba(49, 46, 129, 0.08));
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.domain-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(79, 70, 229, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 1rem;
+    pointer-events: none;
+}
+
+.domain-card:hover {
+    border-color: rgba(124, 58, 237, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(124, 58, 237, 0.15);
+}
+
+.domain-card:hover::after {
+    opacity: 1;
+}
+
+.domain-card h4 {
+    color: var(--purple-300);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+    z-index: 10;
+}
+
+.domain-card h4 i {
+    width: 40px;
+    height: 40px;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125rem;
+    color: var(--white);
+}
+
+.domain-card:nth-child(1) h4 i {
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-400));
+}
+
+.domain-card:nth-child(2) h4 i {
+    background: linear-gradient(135deg, var(--indigo-600), var(--indigo-400));
+}
+
+.domain-card:nth-child(3) h4 i {
+    background: linear-gradient(135deg, var(--purple-700), var(--purple-500));
+}
+
+.domain-card:nth-child(4) h4 i {
+    background: linear-gradient(135deg, var(--indigo-700), var(--indigo-500));
+}
+
+.domain-card p {
+    color: var(--gray-300);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    position: relative;
+    z-index: 10;
+}
+
+.domain-entities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    position: relative;
+    z-index: 10;
+}
+
+.entity-tag {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(79, 70, 229, 0.2));
+    color: var(--purple-300);
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.entity-tag:hover {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.3), rgba(79, 70, 229, 0.3));
+    color: var(--white);
+    border-color: rgba(124, 58, 237, 0.5);
+    transform: scale(1.05);
+}
+
+/* Content Card Icon Styling */
+#diseno-logico h2 i {
+    color: var(--purple-400);
+    margin-right: 0.75rem;
+    font-size: 1.75rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .principles-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .domains-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .principle-card {
+        padding: 1.5rem;
+    }
+    
+    .domain-card {
+        padding: 1.5rem;
+    }
+    
+    .principle-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.75rem;
+    }
+    
+    .logical-design h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .principle-card {
+        padding: 1.25rem;
+    }
+    
+    .domain-card {
+        padding: 1.25rem;
+    }
+    
+    .domain-card h4 {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .entity-tag {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+/* Animation Effects */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.principle-card {
+    animation: fadeInScale 0.6s ease-out;
+}
+
+.domain-card {
+    animation: fadeInScale 0.6s ease-out;
+}
+
+.principle-card:nth-child(1) { animation-delay: 0.1s; }
+.principle-card:nth-child(2) { animation-delay: 0.2s; }
+.principle-card:nth-child(3) { animation-delay: 0.3s; }
+.principle-card:nth-child(4) { animation-delay: 0.4s; }
+
+.domain-card:nth-child(1) { animation-delay: 0.1s; }
+.domain-card:nth-child(2) { animation-delay: 0.2s; }
+.domain-card:nth-child(3) { animation-delay: 0.3s; }
+.domain-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Hover Effects for Entity Tags */
+.domain-entities:hover .entity-tag:not(:hover) {
+    opacity: 0.6;
+    transform: scale(0.95);
+}
