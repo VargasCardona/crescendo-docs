@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diseño de Bases de Datos - Crescendo</title>
     <link rel="stylesheet" href="styles_extra.css">
+    <link rel="stylesheet" href="styles_low_level.css">
     <link rel="stylesheet" href="styles_db.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -561,6 +562,19 @@
                                     </div>
                                 </div>
                             </div>
+
+                        <div class="sequence-diagrams">
+                            <div class="sequence-diagram">
+                                <h3>Diagrama Final: Entidad</h3>
+                                <div class="sequence-container">
+                                    <img src="entidad.jpg" 
+                                        alt="Diagrama de Secuencia - Procesamiento de Traspaso" 
+                                        class="sequence-diagram-image"
+                                        width="1200">
+                                </div>
+                                
+                            </div>
+                        </div>
                         </div>
                     </div>
 
@@ -613,4 +627,281 @@ CREATE TABLE cotizantes (
     numero_documento VARCHAR(15) UNIQUE NOT NULL,
     tipo_documento ENUM('CC', 'CE', 'TI', 'PP', 'NIT') NOT NULL DEFAULT 'CC',
     nombre_completo VARCHAR(100) NOT NULL,
-    fecha_nacimiento
+    fecha_nacimiento DATE NOT NULL,
+    edad INT GENERATED ALWAYS AS (YEAR(CURDATE()) - YEAR(fecha_nacimiento)) STORED,
+    genero ENUM('M', 'F', 'O') NOT NULL,
+    telefono VARCHAR(15),
+    email VARCHAR(100),
+    direccion TEXT,
+    ciudad VARCHAR(50),
+    tiempo_fondo_privado INT DEFAULT 0,
+    historial_deudas BOOLEAN DEFAULT FALSE,
+    estado_traspaso ENUM('PENDIENTE', 'EN_PROCESO', 'COMPLETADO', 'RECHAZADO') DEFAULT 'PENDIENTE',
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    
+    INDEX idx_documento (numero_documento),
+    INDEX idx_estado (estado_traspaso),
+    INDEX idx_ciudad (ciudad)
+);</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Auditoría -->
+                    <div class="content-card" id="auditoria">
+                        <h2><i class="fas fa-search"></i> Auditoría</h2>
+                        <p>El sistema de auditoría de Crescendo proporciona trazabilidad completa y cumplimiento normativo para todas las operaciones del sistema.</p>
+                        
+                        <div class="audit-system">
+                            <div class="audit-overview">
+                                <h3>Componentes del Sistema de Auditoría</h3>
+                                <div class="audit-principles">
+                                    <div class="principle-grid">
+                                        <div class="audit-principle">
+                                            <div class="principle-icon">
+                                                <i class="fas fa-eye"></i>
+                                            </div>
+                                            <h4>Trazabilidad Completa</h4>
+                                            <p>Registro detallado de todas las operaciones con información contextual completa y timestamps precisos.</p>
+                                        </div>
+                                        
+                                        <div class="audit-principle">
+                                            <div class="principle-icon">
+                                                <i class="fas fa-shield-alt"></i>
+                                            </div>
+                                            <h4>Integridad de Datos</h4>
+                                            <p>Protección criptográfica de logs para prevenir manipulación y garantizar autenticidad.</p>
+                                        </div>
+                                        
+                                        <div class="audit-principle">
+                                            <div class="principle-icon">
+                                                <i class="fas fa-balance-scale"></i>
+                                            </div>
+                                            <h4>Cumplimiento Normativo</h4>
+                                            <p>Alineación con regulaciones de la Superintendencia Financiera y estándares internacionales.</p>
+                                        </div>
+                                        
+                                        <div class="audit-principle">
+                                            <div class="principle-icon">
+                                                <i class="fas fa-bell"></i>
+                                            </div>
+                                            <h4>Alertas Automáticas</h4>
+                                            <p>Detección proactiva de actividades sospechosas y operaciones críticas en tiempo real.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="audit-components">
+                                <h3>Estructura de Auditoría</h3>
+                                <div class="component-section">
+                                    <h4><i class="fas fa-database"></i> Tabla de Auditoría Detallada</h4>
+                                    <div class="code-block">
+                                        <pre><code>CREATE TABLE logs_auditoria_detallada (
+    id_log BIGINT AUTO_INCREMENT PRIMARY KEY,
+    timestamp TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6),
+    id_usuario VARCHAR(50),
+    ip_origen VARCHAR(45),
+    
+    -- Contexto de la operación
+    modulo VARCHAR(50) NOT NULL,
+    operacion VARCHAR(100) NOT NULL,
+    tipo_evento ENUM('CREATE', 'READ', 'UPDATE', 'DELETE', 'LOGIN', 'LOGOUT') NOT NULL,
+    
+    -- Entidades afectadas
+    id_cotizante VARCHAR(20),
+    id_traspaso VARCHAR(20),
+    tabla_afectada VARCHAR(50),
+    
+    -- Detalles de la operación
+    datos_anteriores JSON,
+    datos_nuevos JSON,
+    
+    -- Resultado y métricas
+    resultado ENUM('EXITOSO', 'FALLIDO', 'PARCIAL') NOT NULL,
+    duracion_ms INT,
+    nivel_criticidad ENUM('BAJA', 'MEDIA', 'ALTA', 'CRITICA') DEFAULT 'MEDIA',
+    
+    INDEX idx_timestamp (timestamp),
+    INDEX idx_usuario (id_usuario),
+    INDEX idx_operacion (operacion),
+    INDEX idx_criticidad (nivel_criticidad)
+);</code></pre>
+                                    </div>
+                                </div>
+
+                                <div class="component-section">
+                                    <h4><i class="fas fa-list-alt"></i> Eventos Auditados</h4>
+                                    <div class="audit-events-grid">
+                                        <div class="event-category">
+                                            <h5>Gestión de Cotizantes</h5>
+                                            <ul class="event-list">
+                                                <li>Registro y actualización de información personal</li>
+                                                <li>Cambios de estado de traspaso</li>
+                                                <li>Consultas de información sensible</li>
+                                                <li>Exportación de datos</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="event-category">
+                                            <h5>Procesamiento de Traspasos</h5>
+                                            <ul class="event-list">
+                                                <li>Creación y validación de solicitudes</li>
+                                                <li>Cambios de prioridad en cola</li>
+                                                <li>Aprobación/Rechazo con justificación</li>
+                                                <li>Transferencia final de fondos</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="event-category">
+                                            <h5>Gestión de Embargos</h5>
+                                            <ul class="event-list">
+                                                <li>Registro y actualización de embargos</li>
+                                                <li>Levantamiento con documentación</li>
+                                                <li>Consultas por entidades autorizadas</li>
+                                                <li>Reportes de cumplimiento</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="event-category">
+                                            <h5>Seguridad del Sistema</h5>
+                                            <ul class="event-list">
+                                                <li>Autenticación exitosa y fallida</li>
+                                                <li>Cambios de permisos y roles</li>
+                                                <li>Accesos no autorizados</li>
+                                                <li>Configuración del sistema</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="component-section">
+                                    <h4><i class="fas fa-chart-line"></i> Monitoreo y Alertas</h4>
+                                    <div class="monitoring-features">
+                                        <div class="feature-card">
+                                            <h5>Alertas Automáticas</h5>
+                                            <ul>
+                                                <li><strong>Actividad Sospechosa:</strong> Múltiples intentos fallidos, accesos fuera de horario</li>
+                                                <li><strong>Operaciones Críticas:</strong> Traspasos por montos altos, cambios en embargos</li>
+                                                <li><strong>Cumplimiento:</strong> Traspasos pendientes, embargos por vencer</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="feature-card">
+                                            <h5>Métricas de Rendimiento</h5>
+                                            <ul>
+                                                <li><strong>Tiempo de Respuesta:</strong> Latencia en operaciones críticas</li>
+                                                <li><strong>Volumen:</strong> Carga del sistema y picos de actividad</li>
+                                                <li><strong>Disponibilidad:</strong> Uptime y tiempo de recuperación</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="component-section">
+                                    <h4><i class="fas fa-search-plus"></i> Capacidades de Investigación</h4>
+                                    <div class="investigation-tools">
+                                        <div class="tool-category">
+                                            <h5>Búsqueda Avanzada</h5>
+                                            <p>Filtrado por múltiples criterios: fechas, usuarios, operaciones, entidades afectadas y nivel de criticidad.</p>
+                                        </div>
+                                        
+                                        <div class="tool-category">
+                                            <h5>Reconstrucción de Eventos</h5>
+                                            <p>Línea de tiempo detallada y comparación de estados antes/después de cada operación.</p>
+                                        </div>
+                                        
+                                        <div class="tool-category">
+                                            <h5>Análisis de Patrones</h5>
+                                            <p>Detección de comportamientos anómalos y correlación de eventos entre módulos.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="component-section">
+                                    <h4><i class="fas fa-file-alt"></i> Reportes y Cumplimiento</h4>
+                                    <div class="compliance-section">
+                                        <div class="report-types">
+                                            <div class="report-category">
+                                                <h5>Reportes Regulatorios</h5>
+                                                <ul>
+                                                    <li>Reporte mensual de traspasos procesados</li>
+                                                    <li>Informe de embargos activos y cumplimiento</li>
+                                                    <li>Análisis de seguridad y accesos</li>
+                                                </ul>
+                                            </div>
+                                            
+                                            <div class="report-category">
+                                                <h5>Cumplimiento Normativo</h5>
+                                                <ul>
+                                                    <li><strong>Superintendencia Financiera:</strong> Circulares 007/2018, 052/2007</li>
+                                                    <li><strong>Protección de Datos:</strong> Ley 1581/2012 (Habeas Data)</li>
+                                                    <li><strong>Estándares Internacionales:</strong> ISO 27001, SOX, COBIT 5</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="component-section">
+                                    <h4><i class="fas fa-cogs"></i> Configuración y Mantenimiento</h4>
+                                    <div class="maintenance-procedures">
+                                        <div class="procedure-category">
+                                            <h5>Retención de Datos</h5>
+                                            <ul>
+                                                <li><strong>Logs Operativos:</strong> 2 años activos, 7 años archivados</li>
+                                                <li><strong>Logs de Seguridad:</strong> 5 años activos, archivo permanente para eventos críticos</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="procedure-category">
+                                            <h5>Seguridad y Protección</h5>
+                                            <ul>
+                                                <li><strong>Integridad:</strong> Hash SHA-256 y firma digital para logs críticos</li>
+                                                <li><strong>Inmutabilidad:</strong> Registros no modificables una vez creados</li>
+                                                <li><strong>Control de Acceso:</strong> Principio de menor privilegio y autenticación multifactor</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="gradient-text">Crescendo</h3>
+                    <p>Sistema integral de gestión de traspasos de fondos de pensiones con auditoría completa y cumplimiento normativo.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Documentación</h4>
+                    <ul>
+                        <li><a href="diseno-alto-nivel.html">Diseño de Alto Nivel</a></li>
+                        <li><a href="diseno-bajo-nivel.html">Diseño de Bajo Nivel</a></li>
+                        <li><a href="diseno-bases-datos.html">Diseño de Bases de Datos</a></li>
+                        <li><a href="#auditoria">Sistema de Auditoría</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p>Para más información sobre el sistema Crescendo y sus capacidades de auditoría.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Crescendo. Sistema de gestión de traspasos con auditoría integral.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

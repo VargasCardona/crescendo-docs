@@ -358,3 +358,706 @@
     opacity: 0.6;
     transform: scale(0.95);
 }
+/* Auditoría Section Styles - Matching Existing Design System */
+
+.audit-system {
+    margin-top: 2rem;
+}
+
+.audit-overview {
+    margin-bottom: 3rem;
+}
+
+.audit-overview h3 {
+    font-size: 1.75rem;
+    color: var(--purple-300);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.audit-overview h3::before {
+    content: '';
+    width: 4px;
+    height: 30px;
+    background: linear-gradient(to bottom, var(--purple-400), var(--indigo-400));
+    border-radius: 2px;
+}
+
+/* Audit Principles Grid */
+.audit-principles {
+    margin-top: 2rem;
+}
+
+.audit-principle {
+    background: linear-gradient(to bottom right, rgba(76, 29, 149, 0.1), rgba(49, 46, 129, 0.1));
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInScale 0.6s ease-out;
+}
+
+.audit-principle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--purple-600), var(--indigo-600));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.audit-principle:hover {
+    border-color: rgba(124, 58, 237, 0.4);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(124, 58, 237, 0.2);
+}
+
+.audit-principle:hover::before {
+    opacity: 1;
+}
+
+.audit-principle .principle-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: var(--white);
+    position: relative;
+}
+
+.audit-principle:nth-child(1) .principle-icon {
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-400));
+}
+
+.audit-principle:nth-child(2) .principle-icon {
+    background: linear-gradient(135deg, var(--indigo-600), var(--indigo-400));
+}
+
+.audit-principle:nth-child(3) .principle-icon {
+    background: linear-gradient(135deg, var(--purple-700), var(--purple-500));
+}
+
+.audit-principle:nth-child(4) .principle-icon {
+    background: linear-gradient(135deg, var(--indigo-700), var(--indigo-500));
+}
+
+.audit-principle h4 {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.audit-principle p {
+    color: var(--gray-300);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Audit Components */
+.audit-components {
+    margin-top: 3rem;
+}
+
+.audit-components h3 {
+    font-size: 1.75rem;
+    color: var(--purple-300);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.audit-components h3::before {
+    content: '';
+    width: 4px;
+    height: 30px;
+    background: linear-gradient(to bottom, var(--purple-400), var(--indigo-400));
+    border-radius: 2px;
+}
+
+.component-section {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid rgba(124, 58, 237, 0.2);
+}
+
+.component-section:last-child {
+    border-bottom: none;
+}
+
+.component-section h4 {
+    color: var(--purple-300);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.component-section h4 i {
+    width: 40px;
+    height: 40px;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125rem;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-400));
+}
+
+/* Code Block Styling */
+.component-section .code-block {
+    background: linear-gradient(to bottom right, rgba(76, 29, 149, 0.15), rgba(49, 46, 129, 0.15));
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    overflow-x: auto;
+    position: relative;
+}
+
+.component-section .code-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--purple-600), var(--indigo-600));
+    border-radius: 1rem 1rem 0 0;
+}
+
+.component-section .code-block pre {
+    margin: 0;
+    color: var(--gray-300);
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.component-section .code-block code {
+    color: var(--gray-300);
+}
+
+/* Audit Events Grid */
+.audit-events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.event-category {
+    background: linear-gradient(to bottom right, rgba(76, 29, 149, 0.08), rgba(49, 46, 129, 0.08));
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    animation: fadeInScale 0.6s ease-out;
+}
+
+.event-category::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(79, 70, 229, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 1rem;
+    pointer-events: none;
+}
+
+.event-category:hover {
+    border-color: rgba(124, 58, 237, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(124, 58, 237, 0.15);
+}
+
+.event-category:hover::after {
+    opacity: 1;
+}
+
+.event-category h5 {
+    color: var(--purple-300);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--purple-400);
+    position: relative;
+    z-index: 10;
+}
+
+.event-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    z-index: 10;
+}
+
+.event-list li {
+    color: var(--gray-400);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.event-list li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--purple-400);
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.event-list li:hover {
+    color: var(--white);
+    padding-left: 2rem;
+}
+
+.event-list li:hover::before {
+    color: var(--purple-300);
+    transform: translateX(5px);
+}
+
+/* Monitoring Features */
+.monitoring-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.feature-card {
+    background: linear-gradient(to bottom right, rgba(76, 29, 149, 0.1), rgba(49, 46, 129, 0.1));
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInScale 0.6s ease-out;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--purple-600), var(--indigo-600));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.feature-card:hover {
+    border-color: rgba(124, 58, 237, 0.4);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(124, 58, 237, 0.2);
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+.feature-card h5 {
+    color: var(--white);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.feature-card h5 i {
+    color: var(--purple-400);
+}
+
+.feature-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-card ul li {
+    color: var(--gray-400);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.feature-card ul li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--purple-400);
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.feature-card ul li:hover {
+    color: var(--white);
+    padding-left: 2rem;
+}
+
+.feature-card ul li:hover::before {
+    color: var(--purple-300);
+    transform: translateX(5px);
+}
+
+.feature-card ul li strong {
+    color: var(--purple-300);
+    font-weight: 600;
+}
+
+/* Investigation Tools */
+.investigation-tools {
+    margin-top: 1.5rem;
+}
+
+.tool-category {
+    background: linear-gradient(to bottom right, rgba(76, 29, 149, 0.08), rgba(49, 46, 129, 0.08));
+    border-left: 4px solid var(--purple-400);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0 1rem 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.tool-category:hover {
+    background: linear-gradient(to bottom right, rgba(76, 29, 149, 0.12), rgba(49, 46, 129, 0.12));
+    border-left-color: var(--purple-300);
+    transform: translateX(5px);
+}
+
+.tool-category h5 {
+    color: var(--purple-300);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.tool-category p {
+    color: var(--gray-300);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Compliance Section */
+.compliance-section {
+    margin-top: 1.5rem;
+}
+
+.report-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.report-category {
+    background: linear-gradient(to bottom right, rgba(76, 29, 149, 0.08), rgba(49, 46, 129, 0.08));
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    animation: fadeInScale 0.6s ease-out;
+}
+
+.report-category::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(79, 70, 229, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 1rem;
+    pointer-events: none;
+}
+
+.report-category:hover {
+    border-color: rgba(124, 58, 237, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(124, 58, 237, 0.15);
+}
+
+.report-category:hover::after {
+    opacity: 1;
+}
+
+.report-category h5 {
+    color: var(--purple-300);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--indigo-400);
+    position: relative;
+    z-index: 10;
+}
+
+.report-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    z-index: 10;
+}
+
+.report-category ul li {
+    color: var(--gray-400);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.report-category ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--indigo-400);
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.report-category ul li:hover {
+    color: var(--white);
+    padding-left: 2rem;
+}
+
+.report-category ul li:hover::before {
+    color: var(--indigo-300);
+    transform: translateX(5px);
+}
+
+.report-category ul li strong {
+    color: var(--purple-300);
+    font-weight: 600;
+}
+
+/* Maintenance Procedures */
+.maintenance-procedures {
+    margin-top: 1.5rem;
+}
+
+.procedure-category {
+    background: linear-gradient(to bottom right, rgba(76, 29, 149, 0.1), rgba(49, 46, 129, 0.1));
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.procedure-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--purple-600), var(--indigo-600));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.procedure-category:hover {
+    border-color: rgba(124, 58, 237, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(124, 58, 237, 0.15);
+}
+
+.procedure-category:hover::before {
+    opacity: 1;
+}
+
+.procedure-category h5 {
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.procedure-category h5::before {
+    content: '⚙️';
+    font-size: 1.125rem;
+}
+
+.procedure-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.procedure-category ul li {
+    color: var(--gray-400);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.procedure-category ul li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--purple-400);
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.procedure-category ul li:hover {
+    color: var(--white);
+    padding-left: 2rem;
+}
+
+.procedure-category ul li:hover::before {
+    color: var(--purple-300);
+    transform: translateX(5px);
+}
+
+.procedure-category ul li strong {
+    color: var(--purple-300);
+    font-weight: 600;
+}
+
+/* Content Card Icon Styling for Audit Section */
+#auditoria h2 i {
+    color: var(--purple-400);
+    margin-right: 0.75rem;
+    font-size: 1.75rem;
+}
+
+/* Animation Delays */
+.audit-principle:nth-child(1) { animation-delay: 0.1s; }
+.audit-principle:nth-child(2) { animation-delay: 0.2s; }
+.audit-principle:nth-child(3) { animation-delay: 0.3s; }
+.audit-principle:nth-child(4) { animation-delay: 0.4s; }
+
+.event-category:nth-child(1) { animation-delay: 0.1s; }
+.event-category:nth-child(2) { animation-delay: 0.2s; }
+.event-category:nth-child(3) { animation-delay: 0.3s; }
+.event-category:nth-child(4) { animation-delay: 0.4s; }
+
+.feature-card:nth-child(1) { animation-delay: 0.1s; }
+.feature-card:nth-child(2) { animation-delay: 0.2s; }
+
+.report-category:nth-child(1) { animation-delay: 0.1s; }
+.report-category:nth-child(2) { animation-delay: 0.2s; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .audit-events-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .monitoring-features {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .report-types {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .audit-principle,
+    .feature-card,
+    .event-category,
+    .report-category,
+    .procedure-category {
+        padding: 1.5rem;
+    }
+    
+    .audit-principle .principle-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.75rem;
+    }
+    
+    .audit-overview h3,
+    .audit-components h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .audit-principle,
+    .feature-card,
+    .event-category,
+    .report-category,
+    .procedure-category {
+        padding: 1.25rem;
+    }
+    
+    .component-section h4 {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .feature-card h5 {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+}
+
+/* Hover Effects for Groups */
+.monitoring-features:hover .feature-card:not(:hover) {
+    opacity: 0.7;
+    transform: scale(0.98);
+}
+
+.audit-events-grid:hover .event-category:not(:hover) {
+    opacity: 0.7;
+    transform: scale(0.98);
+}
+
+.report-types:hover .report-category:not(:hover) {
+    opacity: 0.7;
+    transform: scale(0.98);
+}
